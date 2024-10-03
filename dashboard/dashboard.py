@@ -41,11 +41,9 @@ def macem_season(day_clean):
     season_df = day_clean.groupby(by="season").total_users.sum().reset_index() 
     return season_df
 
-# Load data
 days_df = pd.read_csv("dashboard/day_clean.csv")
 hour_df = pd.read_csv("dashboard/hour_clean.csv")
 
-# Prepare data
 datetime_columns = ["date"]
 days_df.sort_values(by="date", inplace=True)
 days_df.reset_index(inplace=True)
@@ -57,13 +55,11 @@ for column in datetime_columns:
     days_df[column] = pd.to_datetime(days_df[column])
     hour_df[column] = pd.to_datetime(hour_df[column])
 
-# Get date range
 min_date_days = days_df["date"].min()
 max_date_days = days_df["date"].max()
 min_date_hour = hour_df["date"].min()
 max_date_hour = hour_df["date"].max()
 
-# Sidebar with date input
 with st.sidebar:
     st.image("dashboard/bike_bg.jpg")
     
@@ -74,14 +70,12 @@ with st.sidebar:
         value=[min_date_days, max_date_days]
     )
   
-# Filter data by date range
 main_df_days = days_df[(days_df["date"] >= str(start_date)) & 
                        (days_df["date"] <= str(end_date))]
 
 main_df_hour = hour_df[(hour_df["date"] >= str(start_date)) & 
                         (hour_df["date"] <= str(end_date))]
 
-# Process data
 hour_count_df = get_total_count_by_hour_df(main_df_hour)
 day_clean_count_2011 = count_by_day_clean(main_df_days)
 reg_df = total_registered_users_df(main_df_days)
@@ -89,7 +83,6 @@ cas_df = total_casual_users_df(main_df_days)
 sum_order_items_df = sum_order(main_df_hour)
 season_df = macem_season(main_df_hour)
 
-# Dashboard Header
 st.header('🚲 Bike Rent 🚲')
 
 st.subheader('Daily Bike Rent')
@@ -140,10 +133,6 @@ plt.tick_params(axis='x', labelsize=12)
 
 st.pyplot(plt)
 
-
-
-# Season Analysis
-# Season Analysis
 st.subheader("Jumlah Penyewa Sepeda Terhadap Musim")
 season_usage = days_df.groupby(by="season").total_users.sum().reset_index()
 season_usage.rename(columns={"total_users": "total_users_count"}, inplace=True)
@@ -165,10 +154,7 @@ plt.ylabel(None)
 plt.xlabel(None)
 plt.tick_params(axis='x', labelsize=12)
 
-st.pyplot(plt)  # Menggunakan st.pyplot untuk menampilkan plot di Streamlit
-
-# Comparison of User Types
-# Comparison of User Types
+st.pyplot(plt)  
 st.subheader("Jumlah Penyewa Sepeda Casual dan Registered Terhadap Musim")
 season_usage = days_df.groupby(by="season")[['casual_users', 'registered_users']].sum().reset_index()
 season_usage.rename(columns={"casual_users": "casual_users_count", "registered_users": "registered_users_count"}, inplace=True)
@@ -205,9 +191,7 @@ ax[1].set_xlabel(None)
 ax[1].tick_params(axis='x', labelsize=12)
 
 plt.tight_layout()
-st.pyplot(fig)  # Menggunakan st.pyplot untuk menampilkan plot di Streamlit
-
-# Comparison of Weekend and Weekday Users
+st.pyplot(fig)  
 st.subheader("Jumlah Penyewa Sepeda Saat Weekend dan Weekday")
 category_usage = days_df.groupby(by="category_days")['total_users'].sum().reset_index()
 category_usage.rename(columns={"total_users": "total_users_count"}, inplace=True)
@@ -223,4 +207,4 @@ plt.ylabel(None)
 plt.xlabel(None)
 plt.tick_params(axis='x', labelsize=12)
 
-st.pyplot(plt)  # Menggunakan st.pyplot untuk menampilkan plot di Streamlit
+st.pyplot(plt)  
