@@ -4,21 +4,75 @@
 
 ==========================================
 
-## Set Up Environment - Shell/Terminal
+==========================================
+## Deskripsi Proyek
+==========================================
+Proyek ini bertujuan untuk melakukan analisis data menggunakan Python, memvisualisasikan hasil analisis dalam bentuk dashboard interaktif. Data yang digunakan merupakan dataset yang sudah dibersihkan dari catatan harian dan per jam terkait penggunaan sepeda.
 
-mkdir proyek_analisis_data
+==========================================
+## Struktur Direktori
+==========================================
 
-cd proyek_analisis_data
+- **Submission**: Folder untuk keperluan submission.
+  - **.devcontainer**: Berisi file konfigurasi container pengembangan untuk memastikan konsistensi lingkungan pengembangan.
 
-pipenv install
+- **dashboard**: Folder ini berisi file dan skrip untuk membangun dashboard visualisasi data.
+  - **bike_bg.jpg**: Gambar latar untuk dashboard.
+  - **dashboard.py**: Skrip Python untuk menjalankan dashboard interaktif.
+  - **day_clean.csv**: Dataset yang berisi data harian yang sudah dibersihkan.
+  - **hour_clean.csv**: Dataset yang berisi data per jam yang sudah dibersihkan.
 
-pipenv shell
+- **data**: Folder yang berisi file data mentah atau file yang digunakan dalam analisis.
+  - **Proyek_Analisis_Data_Hafiiz.ipynb**: File data atau laporan hasil analisis.
 
-pip install -r requirements.txt
+- **README.md**: Panduan penggunaan dan dokumentasi proyek ini.
 
-## Run Streamlit app
+- **requirements.txt**: File ini berisi libraries Python yang diperlukan untuk menjalankan proyek.
 
-streamlit run final_dashboard/dashboard.py
+- **url.txt**: Berisi URL yang mungkin terkait dengan proyek ini.
+
+==========================================
+## Persyaratan Sistem
+==========================================
+
+- Python 3.8 atau versi lebih baru.
+- `pipenv` untuk manajemen lingkungan virtual.
+- Libraries yang tercantum di dalam `requirements.txt`.
+
+==========================================
+## Cara Menjalankan Dashboard Streamlit
+==========================================
+
+1. Download file zip dan extract
+2. Masuk ke dalam folder yang sudah di extract dengan nama Submission:
+    ```bash
+    cd Submission
+    ```
+
+3. Instal dependensi proyek menggunakan `pipenv`:
+    ```bash
+    pipenv install
+    ```
+
+4. Masuk ke environment virtual `pipenv`:
+    ```bash
+    pipenv shell
+    ```
+
+5. Instal library tambahan yang terdaftar di dalam `requirements.txt`:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+6. Masuk ke folder dashboard:
+    ```bash
+    cd dashboard
+    ```
+
+7. Jalankan streamlit:
+    ```bash
+    streamlit run dashboard.py
+    ```
 
 ==========================================
 
