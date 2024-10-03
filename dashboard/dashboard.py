@@ -65,7 +65,7 @@ max_date_hour = hour_df["date"].max()
 
 # Sidebar with date input
 with st.sidebar:
-    st.image("bike_bg.jpg")
+    st.image("dashboard/bike_bg.jpg")
     
     start_date, end_date = st.date_input(
         label='Rentang Waktu',
