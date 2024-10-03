@@ -42,8 +42,8 @@ def macem_season(day_clean):
     return season_df
 
 # Load data
-days_df = pd.read_csv("day_clean.csv")
-hour_df = pd.read_csv("hour_clean.csv")
+days_df = pd.read_csv("dashboard/day_clean.csv")
+hour_df = pd.read_csv("dashboard/hour_clean.csv")
 
 # Prepare data
 datetime_columns = ["date"]
