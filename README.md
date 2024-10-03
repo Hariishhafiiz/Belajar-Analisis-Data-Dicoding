@@ -1,9 +1,9 @@
 # Bike Sharing Dataset Analysis Setup
 
-## Deskripsi Proyek=
+## Deskripsi Proyek
 Proyek ini bertujuan untuk melakukan analisis data menggunakan Python, memvisualisasikan hasil analisis dalam bentuk dashboard interaktif. Data yang digunakan merupakan dataset yang sudah dibersihkan dari catatan harian dan per jam terkait penggunaan sepeda.
 
-## Struktur Direktori=
+## Struktur Direktori
 
 - **Submission**: Folder untuk keperluan submission.
   - **.devcontainer**: Berisi file konfigurasi container pengembangan untuk memastikan konsistensi lingkungan pengembangan.
@@ -29,7 +29,7 @@ Proyek ini bertujuan untuk melakukan analisis data menggunakan Python, memvisual
 - `pipenv` untuk manajemen lingkungan virtual.
 - Libraries yang tercantum di dalam `requirements.txt`.
 =
-## Cara Menjalankan Dashboard Streamlit=
+## Cara Menjalankan Dashboard Streamlit
 
 1. Download file zip dan extract
 2. Masuk ke dalam folder yang sudah di extract dengan nama Submission:
